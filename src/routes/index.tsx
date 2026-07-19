@@ -17,25 +17,38 @@ import {
   Users,
   Clock,
   Award,
+  MessageCircle,
 } from "lucide-react";
 import { z } from "zod";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
-import heroImg from "@/assets/hero.jpg";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import logo from "@/assets/tomane-logo.png.asset.json";
+import logoDark from "@/assets/tomane-logo-dark.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Tomané Seguros — Mediação de Seguros com proximidade" },
+      { title: "Tomané Seguros — Proteção de Confiança em Mondim de Basto" },
       {
         name: "description",
         content:
-          "Mediação de seguros personalizada. Auto, Vida, Habitação, Saúde e Empresas. Peça já a sua simulação gratuita.",
+          "Mediação de seguros em Mondim de Basto. Auto, Vida, Habitação, Saúde e Empresas. Excelência no serviço, parceiros para a vida.",
       },
     ],
   }),
   component: Index,
 });
+
+const PHONE = "965264599";
+const PHONE_DISPLAY = "965 264 599";
+const EMAIL = "tomaneseguros@gmail.com";
+const ADDRESS = "Rua de São Sebastião nº 1, 4880-200 Mondim de Basto";
 
 const contactSchema = z.object({
   name: z.string().trim().min(2, "Indique o seu nome").max(100),
@@ -51,30 +64,29 @@ const contactSchema = z.object({
 });
 
 const services = [
+  { icon: Car, title: "Automóvel", desc: "Proteção completa para o seu veículo, com as melhores coberturas do mercado." },
+  { icon: HeartPulse, title: "Vida", desc: "Segurança financeira para os seus. Tranquilidade em todas as fases da vida." },
+  { icon: Home, title: "Habitação", desc: "Casa, recheio e responsabilidade civil. Proteja o seu lar sem preocupações." },
+  { icon: ShieldCheck, title: "Saúde", desc: "Acesso rápido a cuidados de saúde privados, para si e para a sua família." },
+  { icon: Building2, title: "Empresas", desc: "Soluções à medida do seu negócio: multirriscos, frota, acidentes de trabalho." },
+];
+
+const faqs = [
   {
-    icon: Car,
-    title: "Automóvel",
-    desc: "Proteção completa para o seu veículo, com as melhores coberturas do mercado.",
+    q: "Como pedir uma simulação?",
+    a: `Basta contactar-nos por email para ${EMAIL} ou por telemóvel para ${PHONE_DISPLAY}. Também pode preencher o formulário nesta página — respondemos em menos de 24h úteis, sem qualquer compromisso.`,
   },
   {
-    icon: HeartPulse,
-    title: "Vida",
-    desc: "Segurança financeira para os seus. Tranquilidade em todas as fases da vida.",
+    q: "Porquê escolher a Tomané Seguros?",
+    a: "Somos um mediador local, sediado em Mondim de Basto, com atendimento próximo e personalizado. Conhecemos os nossos clientes pelo nome e desenhamos cada solução à medida do seu perfil — não vendemos apólices em série.",
   },
   {
-    icon: Home,
-    title: "Habitação",
-    desc: "Casa, recheio e responsabilidade civil. Proteja o seu lar sem preocupações.",
+    q: "Como funcionam os sinistros?",
+    a: "Em caso de sinistro, ligue-nos diretamente. Acompanhamos todo o processo consigo — da participação à resolução — junto da seguradora. Não fica sozinho a lidar com a papelada nem com call centers.",
   },
   {
-    icon: ShieldCheck,
-    title: "Saúde",
-    desc: "Acesso rápido a cuidados de saúde privados, para si e para a sua família.",
-  },
-  {
-    icon: Building2,
-    title: "Empresas",
-    desc: "Soluções à medida do seu negócio: multirriscos, frota, acidentes de trabalho.",
+    q: "Posso transferir seguros atuais?",
+    a: "Sim, e é mais simples do que parece. Analisamos gratuitamente as suas apólices atuais, comparamos com o mercado e tratamos de toda a transferência por si — sem interrupção de cobertura.",
   },
 ];
 
@@ -88,32 +100,39 @@ function Index() {
         <Services />
         <About />
         <Contact />
+        <FAQ />
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }
 
 function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <a href="#top" className="flex items-center gap-2">
-          <span className="grid h-9 w-9 place-items-center rounded-lg bg-primary text-primary-foreground">
-            <ShieldCheck className="h-5 w-5" />
-          </span>
-          <span className="font-display text-lg font-semibold tracking-tight">
-            Tomané <span className="text-muted-foreground">Seguros</span>
-          </span>
+    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/90 backdrop-blur">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+        <a href="#top" className="flex items-center gap-3">
+          <img src={logo.url} alt="Tomané Seguros" className="h-12 w-12 rounded-full object-cover" />
+          <div className="hidden sm:block leading-tight">
+            <div className="font-display text-base font-semibold tracking-tight text-primary">
+              Tomané Seguros
+            </div>
+            <div className="text-[11px] uppercase tracking-widest text-muted-foreground">
+              Mondim de Basto
+            </div>
+          </div>
         </a>
         <nav className="hidden items-center gap-8 text-sm font-medium text-muted-foreground md:flex">
-          <a href="#servicos" className="transition-colors hover:text-foreground">Serviços</a>
-          <a href="#sobre" className="transition-colors hover:text-foreground">Sobre</a>
-          <a href="#contacto" className="transition-colors hover:text-foreground">Contacto</a>
+          <a href="#servicos" className="transition-colors hover:text-primary">Serviços</a>
+          <a href="#sobre" className="transition-colors hover:text-primary">Sobre</a>
+          <a href="#faq" className="transition-colors hover:text-primary">FAQ</a>
+          <a href="#contacto" className="transition-colors hover:text-primary">Contacto</a>
         </nav>
         <a
           href="#contacto"
-          className="hidden rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:opacity-90 sm:inline-block"
+          className="hidden rounded-full px-4 py-2 text-sm font-semibold shadow-sm transition-all hover:opacity-90 sm:inline-block"
+          style={{ background: "var(--gradient-gold)", color: "var(--gold-foreground)" }}
         >
           Simulação gratuita
         </a>
@@ -125,33 +144,33 @@ function Header() {
 function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
+      <div className="absolute inset-0 -z-10" style={{ background: "var(--gradient-hero)" }} />
       <div
-        className="absolute inset-0 -z-10"
-        style={{ background: "var(--gradient-hero)" }}
+        className="absolute inset-0 -z-10 opacity-[0.07]"
+        style={{
+          backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+          backgroundSize: "24px 24px",
+        }}
       />
-      <div className="absolute inset-0 -z-10 opacity-[0.06]" style={{
-        backgroundImage:
-          "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
-        backgroundSize: "24px 24px",
-      }} />
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 lg:grid-cols-[1.1fr_1fr] lg:py-28">
         <div className="text-primary-foreground">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs font-medium tracking-wide text-white/90">
             <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "var(--gold)" }} />
-            Mediadores registados no ASF
+            Mediador registado na ASF · Mondim de Basto
           </span>
           <h1 className="mt-6 font-display text-4xl font-semibold leading-[1.05] sm:text-5xl lg:text-6xl">
-            Proteja o que <span style={{ color: "var(--gold)" }}>realmente</span> importa.
+            Proteção de <span style={{ color: "var(--gold)" }}>confiança</span> em Mondim de Basto.
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
-            Somos os seus mediadores de seguros de confiança. Comparamos as melhores
-            propostas do mercado e acompanhamos-lhe em cada passo — do orçamento
-            à participação de sinistro.
+            Excelência no serviço. Parceiros para a vida. Somos o seu mediador
+            de proximidade — comparamos as melhores propostas do mercado e
+            acompanhamos-lhe em cada passo, do orçamento à participação de sinistro.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
               href="#contacto"
-              className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-primary shadow-lg transition-all hover:shadow-xl"
+              className="group inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold shadow-lg transition-all hover:shadow-xl"
+              style={{ background: "var(--gradient-gold)", color: "var(--gold-foreground)" }}
             >
               Pedir uma Simulação Gratuita
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -166,7 +185,7 @@ function Hero() {
           <dl className="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-white/15 pt-8">
             {[
               { k: "+20", v: "anos de experiência" },
-              { k: "+2 500", v: "clientes protegidos" },
+              { k: "Local", v: "atendimento próximo" },
               { k: "24h", v: "resposta garantida" },
             ].map((s) => (
               <div key={s.v}>
@@ -178,17 +197,15 @@ function Hero() {
             ))}
           </dl>
         </div>
-        <div className="relative">
+        <div className="relative flex justify-center">
           <div
-            className="absolute -inset-4 rounded-3xl opacity-40 blur-2xl"
+            className="absolute -inset-6 rounded-full opacity-30 blur-3xl"
             style={{ background: "var(--gold)" }}
           />
           <img
-            src={heroImg}
-            alt="Família protegida com mediação de seguros Tomané"
-            width={1600}
-            height={1200}
-            className="relative rounded-3xl object-cover shadow-2xl"
+            src={logoDark.url}
+            alt="Tomané Seguros — Excelência no Serviço. Parceiros para a Vida."
+            className="relative w-full max-w-md rounded-3xl object-contain shadow-2xl ring-1 ring-white/10"
           />
         </div>
       </div>
@@ -200,10 +217,10 @@ function Services() {
   return (
     <section id="servicos" className="mx-auto max-w-7xl px-6 py-24">
       <div className="max-w-2xl">
-        <p className="text-sm font-semibold uppercase tracking-wider text-primary-glow">
+        <p className="text-sm font-semibold uppercase tracking-wider" style={{ color: "var(--primary-glow)" }}>
           Os nossos seguros
         </p>
-        <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">
+        <h2 className="mt-3 font-display text-3xl font-semibold text-primary sm:text-4xl">
           Soluções desenhadas para cada momento da sua vida.
         </h2>
         <p className="mt-4 text-muted-foreground">
@@ -219,16 +236,16 @@ function Services() {
             className="group relative overflow-hidden rounded-2xl border border-border bg-card p-7 transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-elegant)]"
           >
             <div
-              className="grid h-12 w-12 place-items-center rounded-xl text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground"
-              style={{ backgroundColor: "var(--accent)" }}
+              className="grid h-12 w-12 place-items-center rounded-xl transition-all group-hover:scale-105"
+              style={{ background: "var(--gradient-gold)", color: "var(--gold-foreground)" }}
             >
               <s.icon className="h-6 w-6" strokeWidth={1.75} />
             </div>
-            <h3 className="mt-6 font-display text-xl font-semibold">{s.title}</h3>
+            <h3 className="mt-6 font-display text-xl font-semibold text-primary">{s.title}</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
             <a
               href="#contacto"
-              className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary-glow"
+              className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:opacity-80"
             >
               Pedir simulação <ArrowRight className="h-3.5 w-3.5" />
             </a>
@@ -241,38 +258,26 @@ function Services() {
 
 function About() {
   const points = [
-    {
-      icon: Users,
-      title: "Um mediador dedicado",
-      desc: "Um único ponto de contacto que conhece o seu perfil e as suas apólices.",
-    },
-    {
-      icon: Clock,
-      title: "Apoio em sinistro",
-      desc: "Acompanhamento próximo e rápido em todo o processo, do início ao fim.",
-    },
-    {
-      icon: Award,
-      title: "Independência total",
-      desc: "Não trabalhamos para uma seguradora. Trabalhamos para si.",
-    },
+    { icon: Users, title: "Um mediador dedicado", desc: "Um único ponto de contacto que conhece o seu perfil e as suas apólices." },
+    { icon: Clock, title: "Apoio em sinistro", desc: "Acompanhamento próximo e rápido em todo o processo, do início ao fim." },
+    { icon: Award, title: "Proximidade local", desc: "Sediados em Mondim de Basto, ao seu lado quando é preciso." },
   ];
 
   return (
     <section id="sobre" className="border-y border-border" style={{ background: "var(--gradient-subtle)" }}>
       <div className="mx-auto grid max-w-7xl gap-16 px-6 py-24 lg:grid-cols-2 lg:items-center">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-wider text-primary-glow">
+          <p className="text-sm font-semibold uppercase tracking-wider" style={{ color: "var(--primary-glow)" }}>
             Sobre a Tomané Seguros
           </p>
-          <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">
-            Proximidade que faz a diferença.
+          <h2 className="mt-3 font-display text-3xl font-semibold text-primary sm:text-4xl">
+            Excelência no serviço. Parceiros para a vida.
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
             Há mais de duas décadas que a Tomané Seguros ajuda famílias e empresas
-            a tomar decisões informadas sobre a sua proteção. Somos mediadores
-            independentes: comparamos, negociamos e escolhemos consigo a solução
-            certa — sem letras pequenas.
+            de Mondim de Basto e da região a tomar decisões informadas sobre a sua
+            proteção. Somos mediadores independentes: comparamos, negociamos e
+            escolhemos consigo a solução certa — sem letras pequenas.
           </p>
           <ul className="mt-8 space-y-4">
             {[
@@ -282,7 +287,10 @@ function About() {
               "Apoio direto em caso de sinistro",
             ].map((t) => (
               <li key={t} className="flex items-start gap-3">
-                <span className="mt-0.5 grid h-5 w-5 flex-shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
+                <span
+                  className="mt-0.5 grid h-5 w-5 flex-shrink-0 place-items-center rounded-full"
+                  style={{ background: "var(--gradient-gold)", color: "var(--gold-foreground)" }}
+                >
                   <Check className="h-3 w-3" strokeWidth={3} />
                 </span>
                 <span className="text-sm text-foreground">{t}</span>
@@ -299,8 +307,13 @@ function About() {
                 i === 0 ? "sm:translate-y-6" : ""
               } ${i === 2 ? "sm:col-span-2" : ""}`}
             >
-              <p.icon className="h-6 w-6 text-primary" strokeWidth={1.75} />
-              <h3 className="mt-4 font-display text-lg font-semibold">{p.title}</h3>
+              <div
+                className="grid h-10 w-10 place-items-center rounded-lg"
+                style={{ background: "var(--gradient-gold)", color: "var(--gold-foreground)" }}
+              >
+                <p.icon className="h-5 w-5" strokeWidth={1.75} />
+              </div>
+              <h3 className="mt-4 font-display text-lg font-semibold text-primary">{p.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
             </div>
           ))}
@@ -321,9 +334,7 @@ function Contact() {
     const parsed = contactSchema.safeParse(data);
     if (!parsed.success) {
       const fe: Record<string, string> = {};
-      for (const issue of parsed.error.issues) {
-        fe[String(issue.path[0])] = issue.message;
-      }
+      for (const issue of parsed.error.issues) fe[String(issue.path[0])] = issue.message;
       setErrors(fe);
       return;
     }
@@ -344,10 +355,10 @@ function Contact() {
     <section id="contacto" className="mx-auto max-w-7xl px-6 py-24">
       <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr]">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-wider text-primary-glow">
+          <p className="text-sm font-semibold uppercase tracking-wider" style={{ color: "var(--primary-glow)" }}>
             Fale connosco
           </p>
-          <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">
+          <h2 className="mt-3 font-display text-3xl font-semibold text-primary sm:text-4xl">
             Peça a sua simulação gratuita.
           </h2>
           <p className="mt-4 text-muted-foreground">
@@ -355,14 +366,14 @@ function Contact() {
             menos de 24h úteis. Sem compromisso, sem pressão.
           </p>
           <div className="mt-8 space-y-4 text-sm">
-            <a href="tel:+351210000000" className="flex items-center gap-3 text-foreground hover:text-primary">
-              <Phone className="h-4 w-4 text-primary" /> +351 210 000 000
+            <a href={`tel:+351${PHONE}`} className="flex items-center gap-3 text-foreground hover:text-primary">
+              <Phone className="h-4 w-4" style={{ color: "var(--primary-glow)" }} /> +351 {PHONE_DISPLAY}
             </a>
-            <a href="mailto:geral@tomaneseguros.pt" className="flex items-center gap-3 text-foreground hover:text-primary">
-              <Mail className="h-4 w-4 text-primary" /> geral@tomaneseguros.pt
+            <a href={`mailto:${EMAIL}`} className="flex items-center gap-3 text-foreground hover:text-primary">
+              <Mail className="h-4 w-4" style={{ color: "var(--primary-glow)" }} /> {EMAIL}
             </a>
-            <div className="flex items-center gap-3 text-muted-foreground">
-              <MapPin className="h-4 w-4 text-primary" /> Av. da República, 100 — Lisboa
+            <div className="flex items-start gap-3 text-muted-foreground">
+              <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0" style={{ color: "var(--primary-glow)" }} /> {ADDRESS}
             </div>
           </div>
         </div>
@@ -421,39 +432,79 @@ function Contact() {
   );
 }
 
+function FAQ() {
+  return (
+    <section id="faq" className="border-t border-border" style={{ background: "var(--gradient-subtle)" }}>
+      <div className="mx-auto max-w-4xl px-6 py-24">
+        <div className="text-center">
+          <p className="text-sm font-semibold uppercase tracking-wider" style={{ color: "var(--primary-glow)" }}>
+            Perguntas Frequentes
+          </p>
+          <h2 className="mt-3 font-display text-3xl font-semibold text-primary sm:text-4xl">
+            As respostas que procura.
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            Tudo o que precisa de saber antes de dar o próximo passo connosco.
+          </p>
+        </div>
+
+        <Accordion type="single" collapsible className="mt-12 space-y-3">
+          {faqs.map((f, i) => (
+            <AccordionItem
+              key={i}
+              value={`item-${i}`}
+              className="rounded-xl border border-border bg-card px-5 shadow-[var(--shadow-soft)]"
+            >
+              <AccordionTrigger className="text-left font-display text-base font-semibold text-primary hover:no-underline">
+                {f.q}
+              </AccordionTrigger>
+              <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
+                {f.a}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-4">
         <div className="md:col-span-2">
-          <div className="flex items-center gap-2">
-            <span className="grid h-9 w-9 place-items-center rounded-lg bg-white/10">
-              <ShieldCheck className="h-5 w-5" />
-            </span>
-            <span className="font-display text-lg font-semibold">Tomané Seguros</span>
+          <div className="flex items-center gap-3">
+            <img src={logo.url} alt="Tomané Seguros" className="h-12 w-12 rounded-full bg-white object-cover" />
+            <div className="leading-tight">
+              <div className="font-display text-lg font-semibold">Tomané Seguros</div>
+              <div className="text-[11px] uppercase tracking-widest" style={{ color: "var(--gold)" }}>
+                Mondim de Basto
+              </div>
+            </div>
           </div>
-          <p className="mt-4 max-w-md text-sm text-white/70">
-            Mediadores de seguros independentes. Ajudamos particulares e empresas
-            a proteger o que é importante, com transparência e proximidade.
+          <p className="mt-5 max-w-md text-sm text-white/70">
+            Mediador de seguros independente em Mondim de Basto. Ajudamos particulares
+            e empresas a proteger o que é importante, com transparência e proximidade.
           </p>
           <p className="mt-6 text-xs text-white/50">
-            Mediador registado na ASF sob o n.º XXXXXXXX — categoria de Mediador de
-            Seguros. Informações verificáveis em www.asf.com.pt.
+            Mediador registado na ASF sob o n.º XXXXXXXX — categoria de Mediador
+            de Seguros. Informações verificáveis em www.asf.com.pt.
           </p>
         </div>
 
         <div>
-          <h4 className="text-sm font-semibold">Contactos</h4>
+          <h4 className="text-sm font-semibold" style={{ color: "var(--gold)" }}>Contactos</h4>
           <ul className="mt-4 space-y-2 text-sm text-white/70">
-            <li>+351 210 000 000</li>
-            <li>geral@tomaneseguros.pt</li>
-            <li>Av. da República, 100 — Lisboa</li>
+            <li>+351 {PHONE_DISPLAY}</li>
+            <li>{EMAIL}</li>
+            <li>{ADDRESS}</li>
             <li>Seg–Sex · 9h–19h</li>
           </ul>
         </div>
 
         <div>
-          <h4 className="text-sm font-semibold">Redes sociais</h4>
+          <h4 className="text-sm font-semibold" style={{ color: "var(--gold)" }}>Redes sociais</h4>
           <div className="mt-4 flex gap-3">
             {[Facebook, Instagram, Linkedin].map((Icon, i) => (
               <a
@@ -478,5 +529,21 @@ function Footer() {
         </div>
       </div>
     </footer>
+  );
+}
+
+function WhatsAppButton() {
+  const msg = encodeURIComponent("Olá! Gostaria de pedir uma simulação de seguro.");
+  return (
+    <a
+      href={`https://wa.me/351${PHONE}?text=${msg}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Contactar via WhatsApp"
+      className="group fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3.5 text-sm font-semibold text-white shadow-[0_10px_30px_-10px_rgba(37,211,102,0.7)] transition-all hover:scale-105 hover:shadow-[0_15px_40px_-10px_rgba(37,211,102,0.9)]"
+    >
+      <MessageCircle className="h-6 w-6" strokeWidth={2} />
+      <span className="hidden sm:inline">WhatsApp</span>
+    </a>
   );
 }
