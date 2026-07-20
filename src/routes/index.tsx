@@ -69,6 +69,8 @@ const services = [
   { icon: Building2, title: "Empresas", desc: "Soluções à medida do seu negócio: multirriscos, frota, acidentes de trabalho." },
 ];
 
+const WEB3FORMS_ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY";
+
 const faqs = [
   {
     q: "Como pedir uma simulação?",
@@ -85,6 +87,18 @@ const faqs = [
   {
     q: "Posso transferir seguros atuais?",
     a: "Sim, e é mais simples do que parece. Analisamos gratuitamente as suas apólices atuais, comparamos com o mercado e tratamos de toda a transferência por si — sem interrupção de cobertura.",
+  },
+  {
+    q: "Quais são os documentos necessários para pedir uma simulação?",
+    a: "Para uma simulação rápida, apenas necessitamos do seu contacto e do tipo de seguro pretendido. Caso avance para uma proposta formal, solicitaremos a documentação específica do bem ou risco em causa.",
+  },
+  {
+    q: "Com que seguradoras trabalham?",
+    a: "Trabalhamos com diversas seguradoras de referência no mercado nacional, o que nos permite comparar e apresentar a solução mais vantajosa e adequada às suas necessidades específicas.",
+  },
+  {
+    q: "Como posso agendar uma reunião presencial?",
+    a: `Pode contactar-nos diretamente pelo número ${PHONE_DISPLAY} ou enviar uma mensagem pelo formulário ou WhatsApp. Teremos todo o gosto em recebê-lo no nosso escritório em Mondim de Basto.`,
   },
 ];
 
