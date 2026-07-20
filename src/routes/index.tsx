@@ -501,7 +501,7 @@ function Footer() {
             <li>+351 {PHONE_DISPLAY}</li>
             <li>{EMAIL}</li>
             <li>{ADDRESS}</li>
-            <li>Seg–Sex · 9h–19h</li>
+            <li>Seg–Sab · 9h–19h</li>
           </ul>
         </div>
 
