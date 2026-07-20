@@ -69,6 +69,8 @@ const services = [
   { icon: Building2, title: "Empresas", desc: "Soluções à medida do seu negócio: multirriscos, frota, acidentes de trabalho." },
 ];
 
+const WEB3FORMS_ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY";
+
 const faqs = [
   {
     q: "Como pedir uma simulação?",
@@ -85,6 +87,18 @@ const faqs = [
   {
     q: "Posso transferir seguros atuais?",
     a: "Sim, e é mais simples do que parece. Analisamos gratuitamente as suas apólices atuais, comparamos com o mercado e tratamos de toda a transferência por si — sem interrupção de cobertura.",
+  },
+  {
+    q: "Quais são os documentos necessários para pedir uma simulação?",
+    a: "Para uma simulação rápida, apenas necessitamos do seu contacto e do tipo de seguro pretendido. Caso avance para uma proposta formal, solicitaremos a documentação específica do bem ou risco em causa.",
+  },
+  {
+    q: "Com que seguradoras trabalham?",
+    a: "Trabalhamos com diversas seguradoras de referência no mercado nacional, o que nos permite comparar e apresentar a solução mais vantajosa e adequada às suas necessidades específicas.",
+  },
+  {
+    q: "Como posso agendar uma reunião presencial?",
+    a: `Pode contactar-nos diretamente pelo número ${PHONE_DISPLAY} ou enviar uma mensagem pelo formulário ou WhatsApp. Teremos todo o gosto em recebê-lo no nosso escritório em Mondim de Basto.`,
   },
 ];
 
@@ -149,12 +163,7 @@ function Hero() {
         }}
       />
       <div className="mx-auto flex max-w-4xl flex-col items-center px-6 py-24 text-center lg:py-32">
-        <img
-          src={logo.url}
-          alt="Tomané Seguros"
-          className="h-20 w-20 object-contain drop-shadow-[0_8px_24px_rgba(0,0,0,0.5)] sm:h-24 sm:w-24"
-        />
-        <span className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/5 px-3 py-1 text-xs font-medium tracking-wide text-white backdrop-blur">
+        <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/5 px-3 py-1 text-xs font-medium tracking-wide text-white backdrop-blur">
           <span className="h-1.5 w-1.5 rounded-full bg-white" />
           Mediador registado na ASF · Mondim de Basto
         </span>
@@ -165,6 +174,9 @@ function Hero() {
           Excelência no serviço. Parceiros para a vida. Comparamos as melhores
           propostas do mercado e acompanhamos-lhe em cada passo — do orçamento
           à participação de sinistro.
+        </p>
+        <p className="mt-8 font-display text-xl italic text-white/85 sm:text-2xl">
+          Segurança e proximidade para a sua família e empresa.
         </p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <a
@@ -307,10 +319,31 @@ function Contact() {
     }
     setErrors({});
     setSubmitting(true);
-    await new Promise((r) => setTimeout(r, 700));
-    setSubmitting(false);
-    form.reset();
-    toast.success("Pedido enviado! Entraremos em contacto em breve.");
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `Novo pedido de simulação — ${parsed.data.service}`,
+          from_name: "Site Tomané Seguros",
+          to: EMAIL,
+          nome: parsed.data.name,
+          email: parsed.data.email,
+          telefone: parsed.data.phone,
+          seguro: parsed.data.service,
+          mensagem: parsed.data.message || "(sem mensagem)",
+        }),
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || !json.success) throw new Error(json.message || "Falha ao enviar");
+      form.reset();
+      toast.success("Pedido enviado com sucesso! Entraremos em contacto em breve.");
+    } catch {
+      toast.error("Não foi possível enviar. Tente novamente ou contacte-nos por telefone.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const fieldClass =
