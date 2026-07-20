@@ -163,12 +163,7 @@ function Hero() {
         }}
       />
       <div className="mx-auto flex max-w-4xl flex-col items-center px-6 py-24 text-center lg:py-32">
-        <img
-          src={logo.url}
-          alt="Tomané Seguros"
-          className="h-20 w-20 object-contain drop-shadow-[0_8px_24px_rgba(0,0,0,0.5)] sm:h-24 sm:w-24"
-        />
-        <span className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/5 px-3 py-1 text-xs font-medium tracking-wide text-white backdrop-blur">
+        <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/5 px-3 py-1 text-xs font-medium tracking-wide text-white backdrop-blur">
           <span className="h-1.5 w-1.5 rounded-full bg-white" />
           Mediador registado na ASF · Mondim de Basto
         </span>
@@ -179,6 +174,9 @@ function Hero() {
           Excelência no serviço. Parceiros para a vida. Comparamos as melhores
           propostas do mercado e acompanhamos-lhe em cada passo — do orçamento
           à participação de sinistro.
+        </p>
+        <p className="mt-8 font-display text-xl italic text-white/85 sm:text-2xl">
+          Segurança e proximidade para a sua família e empresa.
         </p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <a
