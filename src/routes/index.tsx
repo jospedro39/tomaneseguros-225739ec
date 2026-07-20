@@ -478,12 +478,14 @@ function Footer() {
           <h4 className="text-sm font-semibold text-white">Redes sociais</h4>
           <div className="mt-4 flex gap-3">
             {[
-              { Icon: Facebook, label: "Facebook" },
-              { Icon: Instagram, label: "Instagram" },
-            ].map(({ Icon, label }) => (
+              { Icon: Facebook, label: "Facebook", href: "https://www.facebook.com/tomaneseguros/?locale=pt_BR" },
+              { Icon: Instagram, label: "Instagram", href: "https://www.instagram.com/tomanemouragoncalves?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" },
+            ].map(({ Icon, label, href }) => (
               <a
                 key={label}
-                href="#"
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={label}
                 className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/80 transition-colors hover:bg-white/10 hover:text-white"
               >
