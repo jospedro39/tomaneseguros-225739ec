@@ -140,8 +140,7 @@ function Header() {
 
 function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden">
-      <div className="absolute inset-0 -z-10" style={{ background: "var(--gradient-hero)" }} />
+    <section id="top" className="relative overflow-hidden" style={{ backgroundColor: "#001f3f" }}>
       <div
         className="absolute inset-0 -z-10 opacity-[0.06]"
         style={{
@@ -149,23 +148,20 @@ function Hero() {
           backgroundSize: "26px 26px",
         }}
       />
-      <div className="absolute -top-24 -right-24 -z-10 h-[520px] w-[520px] rounded-full bg-[oklch(0.55_0.17_240)/0.18] blur-3xl" />
-      <div className="absolute -bottom-32 -left-24 -z-10 h-[420px] w-[420px] rounded-full bg-[oklch(0.35_0.09_215)/0.35] blur-3xl" />
-
       <div className="mx-auto flex max-w-4xl flex-col items-center px-6 py-24 text-center lg:py-32">
         <img
           src={logo.url}
           alt="Tomané Seguros"
-          className="h-20 w-20 object-contain drop-shadow-[0_8px_24px_rgba(0,0,0,0.35)] sm:h-24 sm:w-24"
+          className="h-20 w-20 object-contain drop-shadow-[0_8px_24px_rgba(0,0,0,0.5)] sm:h-24 sm:w-24"
         />
-        <span className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs font-medium tracking-wide text-white/85 backdrop-blur">
-          <span className="h-1.5 w-1.5 rounded-full bg-[oklch(0.75_0.15_235)]" />
+        <span className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/5 px-3 py-1 text-xs font-medium tracking-wide text-white backdrop-blur">
+          <span className="h-1.5 w-1.5 rounded-full bg-white" />
           Mediador registado na ASF · Mondim de Basto
         </span>
-        <h1 className="mt-6 font-display text-5xl font-semibold leading-[1.02] text-white sm:text-6xl lg:text-7xl">
-          Proteção de <span className="text-[oklch(0.82_0.12_230)]">confiança</span> em Mondim de Basto.
+        <h1 className="mt-6 font-display text-5xl font-black leading-[1.02] text-white sm:text-6xl lg:text-7xl">
+          Proteção de confiança em Mondim de Basto.
         </h1>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80 sm:text-xl">
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white sm:text-xl">
           Excelência no serviço. Parceiros para a vida. Comparamos as melhores
           propostas do mercado e acompanhamos-lhe em cada passo — do orçamento
           à participação de sinistro.
@@ -173,19 +169,19 @@ function Hero() {
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <a
             href="#contacto"
-            className="group inline-flex items-center gap-2 rounded-full bg-[oklch(0.65_0.19_240)] px-7 py-4 text-sm font-semibold text-white shadow-[0_15px_40px_-10px_oklch(0.55_0.19_240/0.7)] transition-all hover:bg-[oklch(0.70_0.19_240)] hover:shadow-[0_20px_50px_-10px_oklch(0.55_0.19_240/0.9)]"
+            className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 text-sm font-bold text-[#001f3f] shadow-[0_15px_40px_-10px_rgba(0,0,0,0.5)] transition-all hover:bg-white/95"
           >
             Pedir uma Simulação Gratuita
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </a>
           <a
             href="#servicos"
-            className="inline-flex items-center gap-2 rounded-full border border-white/25 px-7 py-4 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+            className="inline-flex items-center gap-2 rounded-full border border-white/40 px-7 py-4 text-sm font-semibold text-white transition-colors hover:bg-white/10"
           >
             Ver os nossos seguros
           </a>
         </div>
-        <p className="mt-14 text-xs uppercase tracking-[0.25em] text-white/50">
+        <p className="mt-14 text-xs uppercase tracking-[0.25em] text-white/70">
           A confiança de famílias e empresas em Mondim de Basto
         </p>
       </div>
