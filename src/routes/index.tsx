@@ -71,7 +71,7 @@ const services = [
   { icon: Building2, title: "Empresas", desc: "Soluções à medida do seu negócio: multirriscos, frota, acidentes de trabalho." },
 ];
 
-const WEB3FORMS_ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY";
+const WEB3FORMS_ACCESS_KEY = "adfdd2d5-94b0-45f7-8269-84b90297adf2";
 
 const faqs = [
   {
