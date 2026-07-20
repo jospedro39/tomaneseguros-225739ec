@@ -143,63 +143,51 @@ function Hero() {
     <section id="top" className="relative overflow-hidden">
       <div className="absolute inset-0 -z-10" style={{ background: "var(--gradient-hero)" }} />
       <div
-        className="absolute inset-0 -z-10 opacity-[0.07]"
+        className="absolute inset-0 -z-10 opacity-[0.06]"
         style={{
           backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
-          backgroundSize: "24px 24px",
+          backgroundSize: "26px 26px",
         }}
       />
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 lg:grid-cols-[1.1fr_1fr] lg:py-28">
-        <div className="text-primary-foreground">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs font-medium tracking-wide text-white/90">
-            <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--primary-glow)]" />
-            Mediador registado na ASF · Mondim de Basto
-          </span>
-          <h1 className="mt-6 font-display text-4xl font-semibold leading-[1.05] sm:text-5xl lg:text-6xl">
-            Proteção de <span style={{ color: "var(--primary-glow)" }}>confiança</span> em Mondim de Basto.
-          </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
-            Excelência no serviço. Parceiros para a vida. Somos o seu mediador
-            de proximidade — comparamos as melhores propostas do mercado e
-            acompanhamos-lhe em cada passo, do orçamento à participação de sinistro.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <a
-              href="#contacto"
-              className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-primary shadow-lg transition-all hover:shadow-xl hover:bg-white/95"
-            >
-              Pedir uma Simulação Gratuita
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </a>
-            <a
-              href="#servicos"
-              className="inline-flex items-center gap-2 rounded-full border border-white/25 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
-            >
-              Ver os nossos seguros
-            </a>
-          </div>
-          <dl className="mt-12 grid max-w-md grid-cols-2 gap-6 border-t border-white/15 pt-8">
-            {[
-              { k: "10 anos", v: "de experiência" },
-              { k: "Local", v: "atendimento próximo" },
-            ].map((s) => (
-              <div key={s.v}>
-                <dt className="font-display text-2xl font-semibold text-white">
-                  {s.k}
-                </dt>
-                <dd className="mt-1 text-xs uppercase tracking-wider text-white/60">{s.v}</dd>
-              </div>
-            ))}
-          </dl>
+      <div className="absolute -top-24 -right-24 -z-10 h-[520px] w-[520px] rounded-full bg-[oklch(0.55_0.17_240)/0.18] blur-3xl" />
+      <div className="absolute -bottom-32 -left-24 -z-10 h-[420px] w-[420px] rounded-full bg-[oklch(0.35_0.09_215)/0.35] blur-3xl" />
+
+      <div className="mx-auto flex max-w-4xl flex-col items-center px-6 py-24 text-center lg:py-32">
+        <img
+          src={logo.url}
+          alt="Tomané Seguros"
+          className="h-20 w-20 object-contain drop-shadow-[0_8px_24px_rgba(0,0,0,0.35)] sm:h-24 sm:w-24"
+        />
+        <span className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs font-medium tracking-wide text-white/85 backdrop-blur">
+          <span className="h-1.5 w-1.5 rounded-full bg-[oklch(0.75_0.15_235)]" />
+          Mediador registado na ASF · Mondim de Basto
+        </span>
+        <h1 className="mt-6 font-display text-5xl font-semibold leading-[1.02] text-white sm:text-6xl lg:text-7xl">
+          Proteção de <span className="text-[oklch(0.82_0.12_230)]">confiança</span> em Mondim de Basto.
+        </h1>
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80 sm:text-xl">
+          Excelência no serviço. Parceiros para a vida. Comparamos as melhores
+          propostas do mercado e acompanhamos-lhe em cada passo — do orçamento
+          à participação de sinistro.
+        </p>
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <a
+            href="#contacto"
+            className="group inline-flex items-center gap-2 rounded-full bg-[oklch(0.65_0.19_240)] px-7 py-4 text-sm font-semibold text-white shadow-[0_15px_40px_-10px_oklch(0.55_0.19_240/0.7)] transition-all hover:bg-[oklch(0.70_0.19_240)] hover:shadow-[0_20px_50px_-10px_oklch(0.55_0.19_240/0.9)]"
+          >
+            Pedir uma Simulação Gratuita
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </a>
+          <a
+            href="#servicos"
+            className="inline-flex items-center gap-2 rounded-full border border-white/25 px-7 py-4 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+          >
+            Ver os nossos seguros
+          </a>
         </div>
-        <div className="relative flex justify-center">
-          <div className="absolute -inset-6 rounded-full bg-white/10 opacity-40 blur-3xl" />
-          <img
-            src={logo.url}
-            alt="Tó Mané Seguros — Excelência no Serviço. Parceiros para a Vida."
-            className="relative w-full max-w-md rounded-3xl bg-white/95 object-contain p-8 shadow-2xl ring-1 ring-white/10"
-          />
-        </div>
+        <p className="mt-14 text-xs uppercase tracking-[0.25em] text-white/50">
+          A confiança de famílias e empresas em Mondim de Basto
+        </p>
       </div>
     </section>
   );
@@ -490,12 +478,14 @@ function Footer() {
           <h4 className="text-sm font-semibold text-white">Redes sociais</h4>
           <div className="mt-4 flex gap-3">
             {[
-              { Icon: Facebook, label: "Facebook" },
-              { Icon: Instagram, label: "Instagram" },
-            ].map(({ Icon, label }) => (
+              { Icon: Facebook, label: "Facebook", href: "https://www.facebook.com/tomaneseguros/?locale=pt_BR" },
+              { Icon: Instagram, label: "Instagram", href: "https://www.instagram.com/tomanemouragoncalves?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" },
+            ].map(({ Icon, label, href }) => (
               <a
                 key={label}
-                href="#"
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={label}
                 className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/80 transition-colors hover:bg-white/10 hover:text-white"
               >
