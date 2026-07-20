@@ -319,10 +319,31 @@ function Contact() {
     }
     setErrors({});
     setSubmitting(true);
-    await new Promise((r) => setTimeout(r, 700));
-    setSubmitting(false);
-    form.reset();
-    toast.success("Pedido enviado! Entraremos em contacto em breve.");
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `Novo pedido de simulação — ${parsed.data.service}`,
+          from_name: "Site Tomané Seguros",
+          to: EMAIL,
+          nome: parsed.data.name,
+          email: parsed.data.email,
+          telefone: parsed.data.phone,
+          seguro: parsed.data.service,
+          mensagem: parsed.data.message || "(sem mensagem)",
+        }),
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || !json.success) throw new Error(json.message || "Falha ao enviar");
+      form.reset();
+      toast.success("Pedido enviado com sucesso! Entraremos em contacto em breve.");
+    } catch {
+      toast.error("Não foi possível enviar. Tente novamente ou contacte-nos por telefone.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const fieldClass =
