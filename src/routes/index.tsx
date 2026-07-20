@@ -27,7 +27,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import logo from "@/assets/tomane-logo-new.png.asset.json";
+
+// Nome do ficheiro que carregaste para a pasta public
+const LOGO_SRC = "/ChatGPT Image 19_07_2026, 17_59_56.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -125,7 +127,7 @@ function Header() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/90 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
         <a href="#top" className="flex items-center gap-3">
-          <img src={logo.url} alt="Tomané Seguros" className="h-11 w-11 object-contain" />
+          <img src={LOGO_SRC} alt="Tomané Seguros" className="h-11 w-11 object-contain" />
           <div className="hidden sm:block leading-tight">
             <div className="font-display text-base font-semibold tracking-tight text-primary">
               Tó Mané Seguros
@@ -475,7 +477,7 @@ function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-4">
         <div className="md:col-span-2">
           <div className="flex items-center gap-3">
-            <img src={logo.url} alt="Tó Mané Seguros" className="h-12 w-12 rounded-lg bg-white object-contain p-1" />
+            <img src={LOGO_SRC} alt="Tó Mané Seguros" className="h-12 w-12 rounded-lg bg-white object-contain p-1" />
             <div className="leading-tight">
               <div className="font-display text-lg font-semibold">Tó Mané Seguros</div>
               <div className="text-[11px] uppercase tracking-widest text-white/60">
