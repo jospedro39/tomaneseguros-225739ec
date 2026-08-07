@@ -490,7 +490,7 @@ function Footer() {
             e empresas a proteger o que é importante, com transparência e proximidade.
           </p>
           <p className="mt-6 text-xs text-white/50">
-            Mediador registado na ASF sob o n.º XXXXXXXX — categoria de Mediador
+            Mediador registado na ASF sob o n.º 316444484 — categoria de Mediador
             de Seguros. Informações verificáveis em www.asf.com.pt.
           </p>
         </div>
