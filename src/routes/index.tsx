@@ -34,7 +34,7 @@ const LOGO_SRC = "/ChatGPT Image 19_07_2026, 17_59_56.png";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Tomané Seguros — Proteção de Confiança em Mondim de Basto" },
+      { title: "Tomané Seguros — Proteção de Confiança" },
       {
         name: "description",
         content:
@@ -66,7 +66,7 @@ const contactSchema = z.object({
 const services = [
   { icon: Car, title: "Automóvel", desc: "Proteção completa para o seu veículo, com as melhores coberturas do mercado." },
   { icon: HeartPulse, title: "Vida", desc: "Segurança financeira para os seus. Tranquilidade em todas as fases da vida." },
-  { icon: Home, title: "Habitação", desc: "Casa, recheio e responsabilidade civil. Proteja o seu lar sem preocupações." },
+  { icon: Home, title: "Multiriscos Habitação", desc: "Casa, recheio e responsabilidade civil. Proteja o seu lar sem preocupações." },
   { icon: ShieldCheck, title: "Saúde", desc: "Acesso rápido a cuidados de saúde privados, para si e para a sua família." },
   { icon: Building2, title: "Empresas", desc: "Soluções à medida do seu negócio: multirriscos, frota, acidentes de trabalho." },
 ];
@@ -80,7 +80,7 @@ const faqs = [
   },
   {
     q: "Porquê escolher a Tomané Seguros?",
-    a: "Somos um mediador local, sediado em Mondim de Basto, com atendimento próximo e personalizado. Conhecemos os nossos clientes pelo nome e desenhamos cada solução à medida do seu perfil — não vendemos apólices em série.",
+    a: "Somos um mediador local, sediado em Mondim de Basto, com atendimento próximo e personalizado. Conhecemos os nossos clientes pelo nome e desenhamos cada solução à medida do seu perfil.",
   },
   {
     q: "Como funcionam os sinistros?",
