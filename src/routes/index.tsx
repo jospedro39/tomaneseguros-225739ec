@@ -6,6 +6,8 @@ import {
   Home,
   ShieldCheck,
   Building2,
+  Scale,
+  Activity,
   ArrowRight,
   Phone,
   Mail,
@@ -38,7 +40,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Mediação de seguros em Mondim de Basto. Auto, Vida, Habitação, Saúde e Empresas. Excelência no serviço, parceiros para a vida.",
+          "Mediação de seguros em Mondim de Basto. Auto, Vida, Habitação, Saúde, Empresas, Responsabilidade Civil e Acidentes Pessoais. Excelência no serviço, parceiros para a vida.",
       },
     ],
   }),
@@ -69,6 +71,8 @@ const services = [
   { icon: Home, title: "Multiriscos Habitação", desc: "Casa, recheio e responsabilidade civil. Proteja o seu lar sem preocupações." },
   { icon: ShieldCheck, title: "Saúde", desc: "Acesso rápido a cuidados de saúde privados, para si e para a sua família." },
   { icon: Building2, title: "Empresas", desc: "Soluções à medida do seu negócio: multirriscos, frota, acidentes de trabalho." },
+  { icon: Scale, title: "Responsabilidade Civil", desc: "Proteção contra indemnizações por danos causados a terceiros na vida privada ou profissional." },
+  { icon: Activity, title: "Acidentes Pessoais", desc: "Salvaguarda a tua integridade física e financeira em caso de imprevistos ou acidentes." },
 ];
 
 const WEB3FORMS_ACCESS_KEY = "adfdd2d5-94b0-45f7-8269-84b90297adf2";
@@ -530,8 +534,8 @@ function Footer() {
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-3 px-6 py-6 text-xs text-white/50 sm:flex-row">
           <p>© {new Date().getFullYear()} Tó Mané Seguros. Todos os direitos reservados.</p>
           <div className="flex gap-4">
-<a href="/politica_de_privacidade.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white">Política de Privacidade</a>
-<a href="https://www.livroreclamacoes.pt" target="_blank" rel="noopener noreferrer" className="hover:text-white">Livro de Reclamações</a>
+            <a href="/politica_de_privacidade.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white">Política de Privacidade</a>
+            <a href="https://www.livroreclamacoes.pt" target="_blank" rel="noopener noreferrer" className="hover:text-white">Livro de Reclamações</a>
           </div>
         </div>
       </div>
