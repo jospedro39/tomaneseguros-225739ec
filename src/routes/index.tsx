@@ -40,7 +40,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Mediação de seguros em Mondim de Basto. Auto, Vida, Habitação, Saúde, Empresas, Responsabilidade Civil e Acidentes Pessoais. Excelência no serviço, parceiros para a vida.",
+          "Mediação de seguros em Mondim de Basto e atendimento nacional. Auto, Vida, Habitação, Saúde, Empresas, Responsabilidade Civil e Acidentes Pessoais. Excelência no serviço, parceiros para a vida.",
       },
     ],
   }),
@@ -72,7 +72,7 @@ const services = [
   { icon: ShieldCheck, title: "Saúde", desc: "Acesso rápido a cuidados de saúde privados, para si e para a sua família." },
   { icon: Building2, title: "Empresas", desc: "Soluções à medida do seu negócio: multirriscos, frota, acidentes de trabalho." },
   { icon: Scale, title: "Responsabilidade Civil", desc: "Proteção contra indemnizações por danos causados a terceiros na vida privada ou profissional." },
-  { icon: Activity, title: "Acidentes Pessoais", desc: "Salvaguarda a tua integridade física e financeira em caso de imprevistos ou acidentes." },
+  { icon: Activity, title: "Acidentes Pessoais", desc: "Salvaguarda a integridade física e financeira em caso de imprevistos ou acidentes." },
 ];
 
 const WEB3FORMS_ACCESS_KEY = "adfdd2d5-94b0-45f7-8269-84b90297adf2";
@@ -84,7 +84,7 @@ const faqs = [
   },
   {
     q: "Porquê escolher a Tomané Seguros?",
-    a: "Somos um mediador local, sediado em Mondim de Basto, com atendimento próximo e personalizado. Conhecemos os nossos clientes pelo nome e desenhamos cada solução à medida do seu perfil.",
+    a: "Somos um mediador de confiança, com atendimento próximo e personalizado. Conhecemos os nossos clientes pelo nome e desenhamos cada solução à medida do seu perfil.",
   },
   {
     q: "Como funcionam os sinistros?",
@@ -103,8 +103,8 @@ const faqs = [
     a: "Trabalhamos com diversas seguradoras de referência no mercado nacional, o que nos permite comparar e apresentar a solução mais vantajosa e adequada às suas necessidades específicas.",
   },
   {
-    q: "Como posso agendar uma reunião presencial?",
-    a: `Pode contactar-nos diretamente pelo número ${PHONE_DISPLAY} ou enviar uma mensagem pelo formulário ou WhatsApp. Teremos todo o gosto em recebê-lo no nosso escritório em Mondim de Basto.`,
+    q: "Como posso agendar uma reunião?",
+    a: `Pode contactar-nos diretamente pelo número ${PHONE_DISPLAY} ou enviar uma mensagem pelo formulário ou WhatsApp. Teremos todo o gosto em recebê-lo no nosso escritório em Mondim de Basto ou atendê-lo à distância.`,
   },
 ];
 
@@ -171,10 +171,10 @@ function Hero() {
       <div className="mx-auto flex max-w-4xl flex-col items-center px-6 py-24 text-center lg:py-32">
         <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/5 px-3 py-1 text-xs font-medium tracking-wide text-white backdrop-blur">
           <span className="h-1.5 w-1.5 rounded-full bg-white" />
-          Mediador registado na ASF · Mondim de Basto
+          Mediador registado na ASF · Atendimento Nacional
         </span>
         <h1 className="mt-6 font-display text-5xl font-black leading-[1.02] text-white sm:text-6xl lg:text-7xl">
-          Proteção de confiança em Mondim de Basto.
+          Proteção de confiança, onde quer que esteja.
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white sm:text-xl">
           Excelência no serviço. Parceiros para a vida. Comparamos as melhores
@@ -200,7 +200,7 @@ function Hero() {
           </a>
         </div>
         <p className="mt-14 text-xs uppercase tracking-[0.25em] text-white/70">
-          A confiança de famílias e empresas em Mondim de Basto
+          A confiança de famílias e empresas de norte a sul
         </p>
       </div>
     </section>
@@ -251,7 +251,7 @@ function About() {
   const points = [
     { icon: Users, title: "Mediador dedicado", desc: "Um único ponto de contacto que conhece o seu perfil e as suas apólices." },
     { icon: Headphones, title: "Apoio em sinistro", desc: "Acompanhamento próximo e rápido em todo o processo, do início ao fim." },
-    { icon: MapPinned, title: "Proximidade local", desc: "Sediados em Mondim de Basto, ao seu lado quando é preciso." },
+    { icon: MapPinned, title: "Proximidade local e digital", desc: "Sediados em Mondim de Basto, ao seu lado onde quer que esteja." },
   ];
 
   return (
@@ -266,10 +266,10 @@ function About() {
               Excelência no serviço. Parceiros para a vida.
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-              Há uma década que a Tó Mané Seguros ajuda famílias e empresas de
-              Mondim de Basto e da região a tomar decisões informadas sobre a sua
-              proteção. Somos mediadores independentes: comparamos, negociamos e
-              escolhemos consigo a solução certa — sem letras pequenas.
+              Há uma década que a Tó Mané Seguros ajuda particulares e empresas a
+              tomar decisões informadas sobre a sua proteção. Somos mediadores
+              independentes: comparamos, negociamos e escolhemos consigo a solução
+              certa — sem letras pequenas.
             </p>
             <ul className="mt-8 space-y-4">
               {[
@@ -490,8 +490,8 @@ function Footer() {
             </div>
           </div>
           <p className="mt-5 max-w-md text-sm text-white/70">
-            Mediador de seguros independente em Mondim de Basto. Ajudamos particulares
-            e empresas a proteger o que é importante, com transparência e proximidade.
+            Mediador de seguros independente. Ajudamos particulares e empresas a proteger
+            o que é importante, com transparência, proximidade e cobertura alargada.
           </p>
           <p className="mt-6 text-xs text-white/50">
             Mediador registado na ASF sob o n.º 316444484 — categoria de Mediador
