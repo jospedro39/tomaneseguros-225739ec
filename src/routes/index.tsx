@@ -67,13 +67,13 @@ const contactSchema = z.object({
 });
 
 const services = [
-  { icon: Car, title: "Automóvel", desc: "Proteção completa para o seu veículo, com as melhores coberturas do mercado." },
-  { icon: HeartPulse, title: "Vida", desc: "Segurança financeira para os seus. Tranquilidade em todas as fases da vida." },
+  { icon: Car, title: "Automóvel", desc: "Proteção completa para o seu veículo, com as melhores coberturas e capital ajustado." },
+  { icon: HeartPulse, title: "Vida", desc: "Segurança financeira para os seus e otimização/transferência de seguros de crédito habitação." },
   { icon: Home, title: "Multiriscos Habitação", desc: "Proteção integral para a sua casa e recheio contra danos, furtos e imprevistos." },
-  { icon: ShieldCheck, title: "Saúde", desc: "Acesso rápido a cuidados de saúde privados, para si e para a sua família." },
-  { icon: Building2, title: "Empresas", desc: "Soluções à medida do seu negócio: multirriscos, frota, acidentes de trabalho." },
+  { icon: ShieldCheck, title: "Saúde", desc: "Acesso rápido a cuidados de saúde privados, clínicas e redes de excelência." },
+  { icon: Building2, title: "Empresas", desc: "Soluções à medida do seu negócio: multirriscos, frotas e acidentes de trabalho." },
   { icon: Scale, title: "Responsabilidade Civil", desc: "Proteção contra indemnizações por danos causados a terceiros na vida privada ou profissional." },
-  { icon: Activity, title: "Acidentes Pessoais", desc: "Salvaguarda a integridade física e financeira em caso de imprevistos ou acidentes." },
+  { icon: Activity, title: "Acidentes Pessoais", desc: "Salvaguarda a integridade física e financeira em caso de imprevistos do quotidiano ou desporto." },
 ];
 
 const WEB3FORMS_ACCESS_KEY = "adfdd2d5-94b0-45f7-8269-84b90297adf2";
@@ -85,27 +85,27 @@ const faqs = [
   },
   {
     q: "Porquê escolher a Tomané Seguros?",
-    a: "Somos um mediador de confiança, associado à Portinsurance, com atendimento próximo e personalizado. Conhecemos os nossos clientes pelo nome e desenhamos cada solução à medida do seu perfil.",
+    a: "Somos um mediador de confiança, associado à Portinsurance, com atendimento próximo e personalizado. Unimos a força de uma grande rede nacional à atenção individualizada que merece.",
   },
   {
     q: "Como funcionam os sinistros?",
-    a: "Em caso de sinistro, ligue-nos diretamente. Acompanhamos todo o processo consigo — da participação à resolução — junto da seguradora. Não fica sozinho a lidar com a papelada nem com call centers.",
+    a: "Em caso de sinistro, ligue-nos diretamente. Acompanhamos todo o processo consigo — da participação à resolução — junto da seguradora. Não fica sozinho a lidar com burocracias.",
   },
   {
-    q: "Posso transferir seguros atuais?",
-    a: "Sim, e é mais simples do que parece. Analisamos gratuitamente as suas apólices atuais, comparamos com o mercado e tratamos de toda a transferência por si — sem interrupção de cobertura.",
+    q: "Posso transferir o meu seguro de vida do crédito habitação?",
+    a: "Sim! Pode retirar o seguro de vida do banco e transferi-lo para as soluções mediadas por nós, conseguindo uma poupança muito significativa na prestação mensal, mantendo ou melhorando as garantias exigidas.",
   },
   {
     q: "Quais são os documentos necessários para pedir uma simulação?",
-    a: "Para uma simulação rápida, apenas necessitamos do seu contacto e do tipo de seguro pretendido. Caso avance para uma proposta formal, solicitaremos a documentação específica do bem ou risco em causa.",
+    a: "Para uma simulação rápida, apenas necessitamos do seu contacto e do tipo de seguro pretendido. Caso avance para uma proposta formal, solicitaremos a documentação específica do risco em causa.",
   },
   {
     q: "Com que seguradoras trabalham?",
-    a: "Trabalhamos em parceria com a Portinsurance e diversas seguradoras de referência no mercado nacional, o que nos permite comparar e apresentar a solução mais vantajosa.",
+    a: "Trabalhamos em estreita parceria com a Portinsurance, o que nos dá acesso a um leque alargado das seguradoras de referência no mercado nacional, permitindo-nos comparar e encontrar a proposta ideal.",
   },
   {
     q: "Como posso agendar uma reunião?",
-    a: `Pode contactar-nos diretamente pelo número ${PHONE_DISPLAY} ou enviar uma mensagem pelo formulário ou WhatsApp. Teremos todo o gosto em recebê-lo no nosso escritório em Mondim de Basto ou atendê-lo à distância.`,
+    a: `Pode contactar-nos diretamente pelo número ${PHONE_DISPLAY} ou enviar uma mensagem pelo formulário ou WhatsApp. Teremos todo o gosto em recebê-lo em Mondim de Basto ou atendê-lo à distância.`,
   },
 ];
 
@@ -219,7 +219,7 @@ function Services() {
           Soluções desenhadas para cada momento da sua vida.
         </h2>
         <p className="mt-4 text-muted-foreground">
-          Trabalhamos em articulação com a Portinsurance e as principais seguradoras nacionais para lhe apresentar sempre a proposta ideal.
+          Trabalhamos em articulação com a Portinsurance e as principais seguradoras do mercado para lhe garantir a proposta ideal.
         </p>
       </div>
 
@@ -283,7 +283,7 @@ function About() {
               {[
                 "Análise personalizada do seu perfil de risco",
                 "Acesso às melhores condições do mercado nacional",
-                "Revisão anual e acompanhamento de apólices",
+                "Transferência vantajosa de seguros de vida (crédito habitação)",
                 "Apoio direto e humano em caso de sinistro",
               ].map((t) => (
                 <li key={t} className="flex items-start gap-3">
