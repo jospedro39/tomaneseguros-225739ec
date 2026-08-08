@@ -20,6 +20,8 @@ import {
   MapPinned,
   MessageCircle,
   ExternalLink,
+  Shield,
+  Award,
 } from "lucide-react";
 import { z } from "zod";
 import { toast } from "sonner";
@@ -117,6 +119,7 @@ function Index() {
       <main>
         <Hero />
         <Services />
+        <PartnersSection />
         <About />
         <Contact />
         <FAQ />
@@ -144,13 +147,14 @@ function Header() {
         </a>
         <nav className="hidden items-center gap-8 text-sm font-medium text-muted-foreground md:flex">
           <a href="#servicos" className="transition-colors hover:text-primary">Serviços</a>
+          <a href="#parceiros" className="transition-colors hover:text-primary">Parceiros</a>
           <a href="#sobre" className="transition-colors hover:text-primary">Sobre</a>
           <a href="#faq" className="transition-colors hover:text-primary">FAQ</a>
           <a href="#contacto" className="transition-colors hover:text-primary">Contacto</a>
         </nav>
         <a
           href="#contacto"
-          className="hidden rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:opacity-90 sm:inline-block"
+          className="hidden rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:opacity-95 sm:inline-block"
         >
           Simulação gratuita
         </a>
@@ -242,6 +246,59 @@ function Services() {
             </a>
           </article>
         ))}
+      </div>
+    </section>
+  );
+}
+
+function PartnersSection() {
+  return (
+    <section id="parceiros" className="border-y border-border bg-card py-16">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="flex flex-col items-center text-center">
+          <p className="text-sm font-semibold uppercase tracking-wider" style={{ color: "var(--primary-glow)" }}>
+            Rede de Parcerias
+          </p>
+          <h2 className="mt-3 font-display text-2xl font-semibold text-primary sm:text-3xl">
+            A garantia e o suporte de uma grande marca nacional
+          </h2>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+            A nossa mediação está estreitamente ligada à{" "}
+            <a
+              href="https://portinsurance.pt"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-primary underline hover:opacity-80 inline-flex items-center gap-1"
+            >
+              Portinsurance <ExternalLink className="h-3.5 w-3.5" />
+            </a>
+            , permitindo-nos aceder às melhores condições negociais junto das seguradoras de referência no mercado nacional.
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-6 sm:grid-cols-3">
+          <div className="flex flex-col items-center text-center rounded-xl border border-border bg-background p-6">
+            <div className="grid h-12 w-12 place-items-center rounded-full bg-accent text-primary mb-4">
+              <Shield className="h-6 w-6" />
+            </div>
+            <h3 className="font-display text-base font-semibold text-primary">Solidez e Confiança</h3>
+            <p className="mt-2 text-xs text-muted-foreground">Parceria estratégica que assegura acesso a produtos de referência e estabilidade.</p>
+          </div>
+          <div className="flex flex-col items-center text-center rounded-xl border border-border bg-background p-6">
+            <div className="grid h-12 w-12 place-items-center rounded-full bg-accent text-primary mb-4">
+              <Award className="h-6 w-6" />
+            </div>
+            <h3 className="font-display text-base font-semibold text-primary">Diversidade de Oferta</h3>
+            <p className="mt-2 text-xs text-muted-foreground">Comparação independente entre várias seguradoras para encontrar o melhor preço e cobertura.</p>
+          </div>
+          <div className="flex flex-col items-center text-center rounded-xl border border-border bg-background p-6">
+            <div className="grid h-12 w-12 place-items-center rounded-full bg-accent text-primary mb-4">
+              <Users className="h-6 w-6" />
+            </div>
+            <h3 className="font-display text-base font-semibold text-primary">Acompanhamento Humano</h3>
+            <p className="mt-2 text-xs text-muted-foreground">O suporte de uma grande rede combinado com a proximidade e atenção local do Tó Mané.</p>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -432,7 +489,7 @@ function Contact() {
           <button
             type="submit"
             disabled={submitting}
-            className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-md transition-all hover:opacity-90 disabled:opacity-60 sm:w-auto"
+            className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-md transition-all hover:opacity-95 disabled:opacity-60 sm:w-auto"
           >
             {submitting ? "A enviar..." : "Enviar pedido"}
             <ArrowRight className="h-4 w-4" />
