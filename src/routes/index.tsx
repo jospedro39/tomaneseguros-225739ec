@@ -19,6 +19,7 @@ import {
   Headphones,
   MapPinned,
   MessageCircle,
+  ExternalLink,
 } from "lucide-react";
 import { z } from "zod";
 import { toast } from "sonner";
@@ -40,7 +41,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Mediação de seguros em Mondim de Basto e atendimento nacional. Auto, Vida, Habitação, Saúde, Empresas, Responsabilidade Civil e Acidentes Pessoais. Excelência no serviço, parceiros para a vida.",
+          "Mediação de seguros em Mondim de Basto e atendimento nacional. Parceria Portinsurance. Auto, Vida, Habitação, Saúde, Empresas, Responsabilidade Civil e Acidentes Pessoais.",
       },
     ],
   }),
@@ -84,7 +85,7 @@ const faqs = [
   },
   {
     q: "Porquê escolher a Tomané Seguros?",
-    a: "Somos um mediador de confiança, com atendimento próximo e personalizado. Conhecemos os nossos clientes pelo nome e desenhamos cada solução à medida do seu perfil.",
+    a: "Somos um mediador de confiança, associado à Portinsurance, com atendimento próximo e personalizado. Conhecemos os nossos clientes pelo nome e desenhamos cada solução à medida do seu perfil.",
   },
   {
     q: "Como funcionam os sinistros?",
@@ -100,7 +101,7 @@ const faqs = [
   },
   {
     q: "Com que seguradoras trabalham?",
-    a: "Trabalhamos com diversas seguradoras de referência no mercado nacional, o que nos permite comparar e apresentar a solução mais vantajosa e adequada às suas necessidades específicas.",
+    a: "Trabalhamos em parceria com a Portinsurance e diversas seguradoras de referência no mercado nacional, o que nos permite comparar e apresentar a solução mais vantajosa.",
   },
   {
     q: "Como posso agendar uma reunião?",
@@ -171,7 +172,7 @@ function Hero() {
       <div className="mx-auto flex max-w-4xl flex-col items-center px-6 py-24 text-center lg:py-32">
         <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/5 px-3 py-1 text-xs font-medium tracking-wide text-white backdrop-blur">
           <span className="h-1.5 w-1.5 rounded-full bg-white" />
-          Mediador registado na ASF · Atendimento Nacional
+          Parceiro Portinsurance · Atendimento Nacional
         </span>
         <h1 className="mt-6 font-display text-5xl font-black leading-[1.02] text-white sm:text-6xl lg:text-7xl">
           Proteção de confiança, onde quer que esteja.
@@ -218,8 +219,7 @@ function Services() {
           Soluções desenhadas para cada momento da sua vida.
         </h2>
         <p className="mt-4 text-muted-foreground">
-          Trabalhamos com as principais seguradoras nacionais para lhe apresentar
-          sempre a proposta mais equilibrada entre cobertura e preço.
+          Trabalhamos em articulação com a Portinsurance e as principais seguradoras nacionais para lhe apresentar sempre a proposta ideal.
         </p>
       </div>
 
@@ -251,7 +251,7 @@ function About() {
   const points = [
     { icon: Users, title: "Mediador dedicado", desc: "Um único ponto de contacto que conhece o seu perfil e as suas apólices." },
     { icon: Headphones, title: "Apoio em sinistro", desc: "Acompanhamento próximo e rápido em todo o processo, do início ao fim." },
-    { icon: MapPinned, title: "Proximidade local e digital", desc: "Sediados em Mondim de Basto, ao seu lado onde quer que esteja." },
+    { icon: MapPinned, title: "Rede e Proximidade", desc: "A solidez da Portinsurance unida ao atendimento personalizado em Mondim." },
   ];
 
   return (
@@ -266,17 +266,25 @@ function About() {
               Excelência no serviço. Parceiros para a vida.
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-              Há uma década que a Tó Mané Seguros ajuda particulares e empresas a
-              tomar decisões informadas sobre a sua proteção. Somos mediadores
-              independentes: comparamos, negociamos e escolhemos consigo a solução
-              certa — sem letras pequenas.
+              Há uma década que ajudamos particulares e empresas a proteger o que mais
+              importa. Como parceiros da{" "}
+              <a
+                href="https://portinsurance.pt"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-primary underline hover:opacity-80 inline-flex items-center gap-1"
+              >
+                Portinsurance <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+              , unimos a proximidade local à capacidade de negociação e robustez de uma
+              das maiores redes de mediação nacional.
             </p>
             <ul className="mt-8 space-y-4">
               {[
                 "Análise personalizada do seu perfil de risco",
-                "Comparação transparente entre seguradoras",
-                "Revisão anual das suas apólices",
-                "Apoio direto em caso de sinistro",
+                "Acesso às melhores condições do mercado nacional",
+                "Revisão anual e acompanhamento de apólices",
+                "Apoio direto e humano em caso de sinistro",
               ].map((t) => (
                 <li key={t} className="flex items-start gap-3">
                   <span className="mt-0.5 grid h-5 w-5 flex-shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
@@ -485,13 +493,16 @@ function Footer() {
             <div className="leading-tight">
               <div className="font-display text-lg font-semibold">Tó Mané Seguros</div>
               <div className="text-[11px] uppercase tracking-widest text-white/60">
-                Mondim de Basto
+                Parceiro Portinsurance
               </div>
             </div>
           </div>
           <p className="mt-5 max-w-md text-sm text-white/70">
-            Mediador de seguros independente. Ajudamos particulares e empresas a proteger
-            o que é importante, com transparência, proximidade e cobertura alargada.
+            Mediador de seguros independente em articulação com a{" "}
+            <a href="https://portinsurance.pt" target="_blank" rel="noopener noreferrer" className="underline hover:text-white">
+              Portinsurance
+            </a>
+            . Protegemos o que é importante com transparência e proximidade.
           </p>
           <p className="mt-6 text-xs text-white/50">
             Mediador registado na ASF sob o n.º 316444484 — categoria de Mediador
