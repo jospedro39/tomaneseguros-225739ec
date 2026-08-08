@@ -296,7 +296,7 @@ function PartnersSection() {
               <Users className="h-6 w-6" />
             </div>
             <h3 className="font-display text-base font-semibold text-primary">Acompanhamento Humano</h3>
-            <p className="mt-2 text-xs text-muted-foreground">O suporte de uma grande rede combinado com a proximidade e atenção local do Tó Mané.</p>
+            <p className="mt-2 text-xs text-muted-foreground">O suporte de uma grande rede combinado com a proximidade e atenção local.</p>
           </div>
         </div>
       </div>
@@ -308,7 +308,7 @@ function About() {
   const points = [
     { icon: Users, title: "Mediador dedicado", desc: "Um único ponto de contacto que conhece o seu perfil e as suas apólices." },
     { icon: Headphones, title: "Apoio em sinistro", desc: "Acompanhamento próximo e rápido em todo o processo, do início ao fim." },
-    { icon: MapPinned, title: "Rede e Proximidade", desc: "A solidez da Portinsurance unida ao atendimento personalizado em Mondim." },
+    { icon: MapPinned, title: "Rede e Proximidade", desc: "A solidez da Portinsurance unida ao atendimento personalizado." },
   ];
 
   return (
