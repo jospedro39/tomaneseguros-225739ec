@@ -570,8 +570,16 @@ function Footer() {
         <div>
           <h4 className="text-sm font-semibold text-white">Contactos</h4>
           <ul className="mt-4 space-y-2 text-sm text-white/70">
-            <li>+351 {PHONE_DISPLAY}</li>
-            <li>{EMAIL}</li>
+            <li>
+              <a href={`tel:+351${PHONE}`} className="hover:text-white transition-colors">
+                +351 {PHONE_DISPLAY}
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${EMAIL}`} className="hover:text-white transition-colors">
+                {EMAIL}
+              </a>
+            </li>
             <li>{ADDRESS}</li>
             <li>Seg–Sab · 9h–19h</li>
           </ul>
