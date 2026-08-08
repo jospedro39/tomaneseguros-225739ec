@@ -68,7 +68,7 @@ const contactSchema = z.object({
 const services = [
   { icon: Car, title: "Automóvel", desc: "Proteção completa para o seu veículo, com as melhores coberturas do mercado." },
   { icon: HeartPulse, title: "Vida", desc: "Segurança financeira para os seus. Tranquilidade em todas as fases da vida." },
-  { icon: Home, title: "Multiriscos Habitação", desc: "Casa, recheio e responsabilidade civil. Proteja o seu lar sem preocupações." },
+  { icon: Home, title: "Multiriscos Habitação", desc: "Proteção integral para a sua casa e recheio contra danos, furtos e imprevistos." },
   { icon: ShieldCheck, title: "Saúde", desc: "Acesso rápido a cuidados de saúde privados, para si e para a sua família." },
   { icon: Building2, title: "Empresas", desc: "Soluções à medida do seu negócio: multirriscos, frota, acidentes de trabalho." },
   { icon: Scale, title: "Responsabilidade Civil", desc: "Proteção contra indemnizações por danos causados a terceiros na vida privada ou profissional." },
